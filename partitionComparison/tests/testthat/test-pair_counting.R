@@ -66,11 +66,11 @@ test_that("the index of Folwkes and Mallows works correctly", {
 test_that("the RV coefficient works correctly", {
   expect_equal(rvCoefficient(random_partition, random_partition), 1)
 
-  expect_equal(rvCoefficient(p, q), 0.36)
-  expect_equal(rvCoefficient(q, p), 0.36)
-  expect_equal(rvCoefficient(p, r), 0.04)
-  expect_equal(rvCoefficient(p, s), sqrt(13)/5)
-  expect_equal(rvCoefficient(r, s), 9*sqrt(13)/65)
+  expect_equal(rvCoefficient(p, q), 9/13)
+  expect_equal(rvCoefficient(q, p), 9/13)
+  expect_equal(rvCoefficient(p, r), 9*sqrt(221)/221)
+  expect_equal(rvCoefficient(p, s), 3*sqrt(13)/13)
+  expect_equal(rvCoefficient(r, s), 3*sqrt(17)/17)
 })
 
 test_that("the Mirkin metric index works correctly", {

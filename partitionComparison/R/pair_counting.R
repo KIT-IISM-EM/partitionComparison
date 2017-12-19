@@ -237,30 +237,19 @@ setMethod("folwkesMallowsIndex", signature(p="PairCoefficients", q="missing"),
 #'               new("Partition", c(0, 0, 1, 1, 1))) == 9 / 13
 #' 
 #' @export
-setGeneric("rvCoefficient", function(p, q, c=NULL) standardGeneric("rvCoefficient"))
+setGeneric("rvCoefficient", function(p, q) standardGeneric("rvCoefficient"))
 
 #' @describeIn rvCoefficient Compute the RV coefficient given two partitions
-setMethod("rvCoefficient", signature(p="Partition", q="Partition", c="missing"),
-          function(p, q, c=NULL) rvCoefficient(p, q, computePairCoefficients(p, q)))
+setMethod("rvCoefficient", signature(p="Partition", q="Partition"),
+          function(p, q) rvCoefficient(p=computePairCoefficients(p, q)))
 
 #' @describeIn rvCoefficient Compute the RV coefficient given the pair coefficients
-# setMethod("rvCoefficient", 
-#           signature(p="PairCoefficients", q="missing"),
-#           function(p, q=NULL) {
-#             n <- (1 + sqrt(1 + 8 * N(p))) / 2  # Inverse of n*(n-1)/2 = N11+...+N00
-#             
-#             (n + 2 * N11(p)) / sqrt((2 * N21(p)+ n) * (2 * N12(p)+ n))
-#           })
 setMethod("rvCoefficient", 
-          signature(p="Partition", q="Partition", c="PairCoefficients"),
-          function(p, q, c) {
-            n <- as.double(length(p))
-            cc_p <- as.double(length(unique(p)))
-            cc_q <- as.double(length(unique(q)))
+          signature(p="PairCoefficients", q="missing"),
+          function(p, q=NULL) {
+            n <- (1 + sqrt(1 + 8 * N(p))) / 2  # Inverse of n*(n-1)/2 = N11+...+N00
             
-            (2*N11(c) + n - (2*N21(c)+n)/cc_q - (2*N12(c)+n)/cc_p + n**2/(cc_p*cc_q)) / 
-              sqrt(((cc_p-2)/cc_p*(2*N21(c)+n)+(n/cc_p)**2) * 
-                     ((cc_q-2)/cc_q*(2*N12(c)+n)+(n/cc_q)**2))
+            (n + 2 * N11(p)) / sqrt((2 * N21(p)+ n) * (2 * N12(p)+ n))
           })
 
 

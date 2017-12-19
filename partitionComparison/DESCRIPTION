@@ -1,8 +1,8 @@
 Package: partitionComparison
 Type: Package
 Title: Implements Measures for the Comparison of Two Partitions
-Version: 0.2.3
-Date: 2017-09-12
+Version: 0.2.2
+Date: 2017-08-25
 Author: Fabian Ball [aut, cre, cph, ctb],
     Andreas Geyer-Schulz [cph]
 Maintainer: Fabian Ball <fabian.ball@kit.edu>
