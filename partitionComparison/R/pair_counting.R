@@ -16,10 +16,10 @@
 #' @examples 
 #' pc <- computePairCoefficients(new("Partition", c(0, 0, 0, 1, 1)), 
 #'                               new("Partition", c(0, 0, 1, 1, 1)))
-#' N11(pc) == 2
-#' N10(pc) == 2
-#' N01(pc) == 2
-#' N00(pc) == 4
+#' isTRUE(all.equal(N11(pc), 2))
+#' isTRUE(all.equal(N10(pc), 2))
+#' isTRUE(all.equal(N01(pc), 2))
+#' isTRUE(all.equal(N00(pc), 4))
 #' 
 #' @export
 computePairCoefficients <- function(p, q) {
@@ -46,7 +46,7 @@ computePairCoefficients <- function(p, q) {
   }
   
   # Assert: the sum of the coefficients must be n choose 2
-  stopifnot((N00 + N10 + N01 + N11 == choose(length(p), 2)))
+  stopifnot(isTRUE(all.equal(N00 + N10 + N01 + N11, choose(length(p), 2))))
   
   new("PairCoefficients", N00=N00, N10=N10, N01=N01, N11=N11)
 }
@@ -64,8 +64,8 @@ computePairCoefficients <- function(p, q) {
 #' @template author
 #' @name randIndex
 #' @examples 
-#' randIndex(new("Partition", c(0, 0, 0, 1, 1)), 
-#'           new("Partition", c(0, 0, 1, 1, 1))) == 0.6
+#' isTRUE(all.equal(randIndex(new("Partition", c(0, 0, 0, 1, 1)),
+#'                            new("Partition", c(0, 0, 1, 1, 1))), 0.6))
 #' 
 #' @export
 setGeneric("randIndex", function(p, q) standardGeneric("randIndex"))
@@ -91,8 +91,8 @@ setMethod("randIndex", signature(p="PairCoefficients", q="missing"),
 #' @template author
 #' @name adjustedRandIndex
 #' @examples 
-#' adjustedRandIndex(new("Partition", c(0, 0, 0, 1, 1)), 
-#'                   new("Partition", c(0, 0, 1, 1, 1))) == 1/6
+#' isTRUE(all.equal(adjustedRandIndex(new("Partition", c(0, 0, 0, 1, 1)), 
+#'                                    new("Partition", c(0, 0, 1, 1, 1))), 1/6))
 #' 
 #' @export
 setGeneric("adjustedRandIndex", function(p, q) standardGeneric("adjustedRandIndex"))
@@ -120,8 +120,8 @@ setMethod("adjustedRandIndex", signature(p="PairCoefficients", q="missing"),
 #' @template author
 #' @name jaccardCoefficient
 #' @examples 
-#' jaccardCoefficient(new("Partition", c(0, 0, 0, 1, 1)), 
-#'                    new("Partition", c(0, 0, 1, 1, 1))) == 1/3
+#' isTRUE(all.equal(jaccardCoefficient(new("Partition", c(0, 0, 0, 1, 1)), 
+#'                                     new("Partition", c(0, 0, 1, 1, 1))), 1/3))
 #' 
 #' @export
 setGeneric("jaccardCoefficient", function(p, q) standardGeneric("jaccardCoefficient"))
@@ -147,7 +147,8 @@ setMethod("jaccardCoefficient", signature(p="PairCoefficients", q="missing"),
 #' @template author
 #' @name wallaceI
 #' @examples 
-#' wallaceI(new("Partition", c(0, 0, 0, 1, 1)), new("Partition", c(0, 0, 1, 1, 1))) == 0.5
+#' isTRUE(all.equal(wallaceI(new("Partition", c(0, 0, 0, 1, 1)), 
+#'                           new("Partition", c(0, 0, 1, 1, 1))), 0.5))
 #' 
 #' @seealso \code{\link{folwkesMallowsIndex}}
 #' @export
@@ -174,8 +175,8 @@ setMethod("wallaceI", signature(p="PairCoefficients", q="missing"),
 #' @template author
 #' @name wallaceII
 #' @examples 
-#' wallaceII(new("Partition", c(0, 0, 0, 1, 1)), 
-#'           new("Partition", c(0, 0, 1, 1, 1))) == 0.5
+#' isTRUE(all.equal(wallaceII(new("Partition", c(0, 0, 0, 1, 1)), 
+#'                            new("Partition", c(0, 0, 1, 1, 1))), 0.5))
 #' 
 #' @seealso \code{\link{folwkesMallowsIndex}}
 #' @export
@@ -203,8 +204,8 @@ setMethod("wallaceII", signature(p="PairCoefficients", q="missing"),
 #' @template author
 #' @name folwkesMallowsIndex
 #' @examples 
-#' folwkesMallowsIndex(new("Partition", c(0, 0, 0, 1, 1)), 
-#'                     new("Partition", c(0, 0, 1, 1, 1))) == 0.5
+#' isTRUE(all.equal(folwkesMallowsIndex(new("Partition", c(0, 0, 0, 1, 1)), 
+#'                                      new("Partition", c(0, 0, 1, 1, 1))), 0.5))
 #' 
 #' @seealso \code{\link{wallaceI}} \code{\link{wallaceII}}
 #' @export
@@ -233,8 +234,8 @@ setMethod("folwkesMallowsIndex", signature(p="PairCoefficients", q="missing"),
 #' @template author
 #' @name rvCoefficient
 #' @examples 
-#' rvCoefficient(new("Partition", c(0, 0, 0, 1, 1)), 
-#'               new("Partition", c(0, 0, 1, 1, 1))) == 9 / 13
+#' isTRUE(all.equal(rvCoefficient(new("Partition", c(0, 0, 0, 1, 1)), 
+#'                                new("Partition", c(0, 0, 1, 1, 1))), 9/13))
 #' 
 #' @export
 setGeneric("rvCoefficient", function(p, q) standardGeneric("rvCoefficient"))
@@ -265,8 +266,8 @@ setMethod("rvCoefficient",
 #' @template author
 #' @name mirkinMetric
 #' @examples 
-#' mirkinMetric(new("Partition", c(0, 0, 0, 1, 1)), 
-#'              new("Partition", c(0, 0, 1, 1, 1))) == 8
+#' isTRUE(all.equal(mirkinMetric(new("Partition", c(0, 0, 0, 1, 1)), 
+#'                               new("Partition", c(0, 0, 1, 1, 1))), 8))
 #' 
 #' @export
 setGeneric("mirkinMetric", function(p, q) standardGeneric("mirkinMetric"))
@@ -292,8 +293,8 @@ setMethod("mirkinMetric", signature(p="PairCoefficients", q="missing"),
 #' @template author
 #' @name minkowskiMeasure
 #' @examples 
-#' minkowskiMeasure(new("Partition", c(0, 0, 0, 1, 1)), 
-#'                  new("Partition", c(0, 0, 1, 1, 1))) == 1
+#' isTRUE(all.equal(minkowskiMeasure(new("Partition", c(0, 0, 0, 1, 1)), 
+#'                                   new("Partition", c(0, 0, 1, 1, 1))), 1))
 #' 
 #' @export
 setGeneric("minkowskiMeasure", function(p, q) standardGeneric("minkowskiMeasure"))
@@ -319,8 +320,8 @@ setMethod("minkowskiMeasure", signature(p="PairCoefficients", q="missing"),
 #' @template author
 #' @name gammaStatistics
 #' @examples 
-#' gammaStatistics(new("Partition", c(0, 0, 0, 1, 1)), 
-#'                 new("Partition", c(0, 0, 1, 1, 1))) == 1/6
+#' isTRUE(all.equal(gammaStatistics(new("Partition", c(0, 0, 0, 1, 1)), 
+#'                                  new("Partition", c(0, 0, 1, 1, 1))), 1/6))
 #' 
 #' @export
 setGeneric("gammaStatistics", function(p, q) standardGeneric("gammaStatistics"))
@@ -353,7 +354,8 @@ setMethod("gammaStatistics", signature(p="PairCoefficients", q="missing"),
 #' @template author
 #' @name hamann
 #' @examples 
-#' hamann(new("Partition", c(0, 0, 0, 1, 1)), new("Partition", c(0, 0, 1, 1, 1))) == 0.2
+#' isTRUE(all.equal(hamann(new("Partition", c(0, 0, 0, 1, 1)), 
+#'                         new("Partition", c(0, 0, 1, 1, 1))), 0.2))
 #' 
 #' @export
 setGeneric("hamann", function(p, q) standardGeneric("hamann"))
@@ -379,8 +381,8 @@ setMethod("hamann", signature(p="PairCoefficients", q="missing"),
 #' @template author
 #' @name czekanowski
 #' @examples 
-#' czekanowski(new("Partition", c(0, 0, 0, 1, 1)), 
-#'             new("Partition", c(0, 0, 1, 1, 1))) == 0.5
+#' isTRUE(all.equal(czekanowski(new("Partition", c(0, 0, 0, 1, 1)), 
+#'                              new("Partition", c(0, 0, 1, 1, 1))), 0.5))
 #' 
 #' @export
 setGeneric("czekanowski", function(p, q) standardGeneric("czekanowski"))
@@ -406,8 +408,8 @@ setMethod("czekanowski", signature(p="PairCoefficients", q="missing"),
 #' @template author
 #' @name kulczynski
 #' @examples 
-#' kulczynski(new("Partition", c(0, 0, 0, 1, 1)), 
-#'            new("Partition", c(0, 0, 1, 1, 1))) == 0.5
+#' isTRUE(all.equal(kulczynski(new("Partition", c(0, 0, 0, 1, 1)), 
+#'                             new("Partition", c(0, 0, 1, 1, 1))), 0.5))
 #' 
 #' @export
 setGeneric("kulczynski", function(p, q) standardGeneric("kulczynski"))
@@ -433,8 +435,8 @@ setMethod("kulczynski", signature(p="PairCoefficients", q="missing"),
 #' @template author
 #' @name mcconnaughey
 #' @examples 
-#' mcconnaughey(new("Partition", c(0, 0, 0, 1, 1)), 
-#'              new("Partition", c(0, 0, 1, 1, 1))) == 0
+#' isTRUE(all.equal(mcconnaughey(new("Partition", c(0, 0, 0, 1, 1)), 
+#'                               new("Partition", c(0, 0, 1, 1, 1))), 0))
 #' 
 #' @export
 setGeneric("mcconnaughey", function(p, q) standardGeneric("mcconnaughey"))
@@ -461,7 +463,8 @@ setMethod("mcconnaughey", signature(p="PairCoefficients", q="missing"),
 #' @template author
 #' @name peirce
 #' @examples 
-#' peirce(new("Partition", c(0, 0, 0, 1, 1)), new("Partition", c(0, 0, 1, 1, 1))) == 1/6
+#' isTRUE(all.equal(peirce(new("Partition", c(0, 0, 0, 1, 1)), 
+#'                         new("Partition", c(0, 0, 1, 1, 1))), 1/6))
 #' 
 #' @export
 setGeneric("peirce", function(p, q) standardGeneric("peirce"))
@@ -490,8 +493,8 @@ setMethod("peirce", signature(p="PairCoefficients", q="missing"),
 #' @template author
 #' @name sokalSneath1
 #' @examples 
-#' sokalSneath1(new("Partition", c(0, 0, 0, 1, 1)), 
-#'              new("Partition", c(0, 0, 1, 1, 1))) == 7/12
+#' isTRUE(all.equal(sokalSneath1(new("Partition", c(0, 0, 0, 1, 1)), 
+#'                              new("Partition", c(0, 0, 1, 1, 1))), 7/12))
 #' 
 #' @export
 setGeneric("sokalSneath1", function(p, q) standardGeneric("sokalSneath1"))
@@ -518,8 +521,8 @@ setMethod("sokalSneath1", signature(p="PairCoefficients", q="missing"),
 #' @template author
 #' @name sokalSneath2
 #' @examples 
-#' sokalSneath2(new("Partition", c(0, 0, 0, 1, 1)), 
-#'              new("Partition", c(0, 0, 1, 1, 1))) == 0.2
+#' isTRUE(all.equal(sokalSneath2(new("Partition", c(0, 0, 0, 1, 1)), 
+#'                               new("Partition", c(0, 0, 1, 1, 1))), 0.2))
 #' 
 #' @export
 setGeneric("sokalSneath2", function(p, q) standardGeneric("sokalSneath2"))
@@ -545,8 +548,8 @@ setMethod("sokalSneath2", signature(p="PairCoefficients", q="missing"),
 #' @template author
 #' @name sokalSneath3
 #' @examples 
-#' sokalSneath3(new("Partition", c(0, 0, 0, 1, 1)), 
-#'              new("Partition", c(0, 0, 1, 1, 1))) == 1/3
+#' isTRUE(all.equal(sokalSneath3(new("Partition", c(0, 0, 0, 1, 1)), 
+#'                               new("Partition", c(0, 0, 1, 1, 1))), 1/3))
 #' 
 #' @export
 setGeneric("sokalSneath3", function(p, q) standardGeneric("sokalSneath3"))
@@ -573,8 +576,8 @@ setMethod("sokalSneath3", signature(p="PairCoefficients", q="missing"),
 #' @template author
 #' @name baulieu1
 #' @examples 
-#' baulieu1(new("Partition", c(0, 0, 0, 1, 1)), 
-#'          new("Partition", c(0, 0, 1, 1, 1))) == 0.76
+#' isTRUE(all.equal(baulieu1(new("Partition", c(0, 0, 0, 1, 1)), 
+#'                           new("Partition", c(0, 0, 1, 1, 1))), 0.76))
 #' 
 #' @export
 setGeneric("baulieu1", function(p, q) standardGeneric("baulieu1"))
@@ -601,8 +604,8 @@ setMethod("baulieu1", signature(p="PairCoefficients", q="missing"),
 #' @template author
 #' @name baulieu2
 #' @examples 
-#' baulieu2(new("Partition", c(0, 0, 0, 1, 1)), 
-#'          new("Partition", c(0, 0, 1, 1, 1))) == 0.04
+#' isTRUE(all.equal(baulieu2(new("Partition", c(0, 0, 0, 1, 1)), 
+#'                           new("Partition", c(0, 0, 1, 1, 1))), 0.04))
 #' 
 #' @export
 setGeneric("baulieu2", function(p, q) standardGeneric("baulieu2"))
@@ -628,8 +631,8 @@ setMethod("baulieu2", signature(p="PairCoefficients", q="missing"),
 #' @template author
 #' @name russelRao
 #' @examples 
-#' russelRao(new("Partition", c(0, 0, 0, 1, 1)), 
-#'           new("Partition", c(0, 0, 1, 1, 1))) == 0.2
+#' isTRUE(all.equal(russelRao(new("Partition", c(0, 0, 0, 1, 1)), 
+#'                            new("Partition", c(0, 0, 1, 1, 1))), 0.2))
 #' 
 #' @export
 setGeneric("russelRao", function(p, q) standardGeneric("russelRao"))
@@ -655,8 +658,8 @@ setMethod("russelRao", signature(p="PairCoefficients", q="missing"),
 #' @template author
 #' @name fagerMcGowan
 #' @examples 
-#' fagerMcGowan(new("Partition", c(0, 0, 0, 1, 1)), 
-#'              new("Partition", c(0, 0, 1, 1, 1))) == 0.25
+#' isTRUE(all.equal(fagerMcGowan(new("Partition", c(0, 0, 0, 1, 1)), 
+#'                               new("Partition", c(0, 0, 1, 1, 1))), 0.25))
 #' 
 #' @export
 setGeneric("fagerMcGowan", function(p, q) standardGeneric("fagerMcGowan"))
@@ -682,8 +685,8 @@ setMethod("fagerMcGowan", signature(p="PairCoefficients", q="missing"),
 #' @template author
 #' @name pearson
 #' @examples 
-#' pearson(new("Partition", c(0, 0, 0, 1, 1)), 
-#'         new("Partition", c(0, 0, 1, 1, 1))) == 1/144
+#' isTRUE(all.equal(pearson(new("Partition", c(0, 0, 0, 1, 1)), 
+#'                          new("Partition", c(0, 0, 1, 1, 1))), 1/144))
 #' 
 #' @export
 setGeneric("pearson", function(p, q) standardGeneric("pearson"))
@@ -712,8 +715,8 @@ setMethod("pearson", signature(p="PairCoefficients", q="missing"),
 #' @template author
 #' @name gowerLegendre
 #' @examples 
-#' gowerLegendre(new("Partition", c(0, 0, 0, 1, 1)), 
-#'               new("Partition", c(0, 0, 1, 1, 1))) == 0.75
+#' isTRUE(all.equal(gowerLegendre(new("Partition", c(0, 0, 0, 1, 1)), 
+#'                                new("Partition", c(0, 0, 1, 1, 1))), 0.75))
 #' 
 #' @export
 setGeneric("gowerLegendre", function(p, q) standardGeneric("gowerLegendre"))
@@ -740,8 +743,8 @@ setMethod("gowerLegendre", signature(p="PairCoefficients", q="missing"),
 #' @template author
 #' @name rogersTanimoto
 #' @examples 
-#' rogersTanimoto(new("Partition", c(0, 0, 0, 1, 1)), 
-#'                new("Partition", c(0, 0, 1, 1, 1))) == 3/7
+#' isTRUE(all.equal(rogersTanimoto(new("Partition", c(0, 0, 0, 1, 1)), 
+#'                                 new("Partition", c(0, 0, 1, 1, 1))), 3/7))
 #' 
 #' @export
 setGeneric("rogersTanimoto", function(p, q) standardGeneric("rogersTanimoto"))
@@ -768,8 +771,8 @@ setMethod("rogersTanimoto", signature(p="PairCoefficients", q="missing"),
 #' @template author
 #' @name goodmanKruskal
 #' @examples 
-#' goodmanKruskal(new("Partition", c(0, 0, 0, 1, 1)), 
-#'                new("Partition", c(0, 0, 1, 1, 1))) == 1/3
+#' isTRUE(all.equal(goodmanKruskal(new("Partition", c(0, 0, 0, 1, 1)), 
+#'                                 new("Partition", c(0, 0, 1, 1, 1))), 1/3))
 #' 
 #' @export
 setGeneric("goodmanKruskal", function(p, q) standardGeneric("goodmanKruskal"))
@@ -801,8 +804,8 @@ setMethod("goodmanKruskal", signature(p="PairCoefficients", q="missing"),
 #' @template author
 #' @name lermanIndex
 #' @examples 
-#' lermanIndex(new("Partition", c(0, 0, 0, 1, 1)), 
-#'             new("Partition", c(0, 0, 1, 1, 1))) == 2/sqrt(21)
+#' isTRUE(all.equal(lermanIndex(new("Partition", c(0, 0, 0, 1, 1)), 
+#'                              new("Partition", c(0, 0, 1, 1, 1))), 2/sqrt(21)))
 #' 
 #' @seealso \code{\link{normalizedLermanIndex}}
 #' @export
@@ -850,8 +853,8 @@ setMethod("lermanIndex", signature(p="Partition", q="Partition", c="PairCoeffici
 #' @template author
 #' @name normalizedLermanIndex
 #' @examples 
-#' normalizedLermanIndex(new("Partition", c(0, 0, 0, 1, 1)), 
-#'                       new("Partition", c(0, 0, 1, 1, 1))) == 1/6
+#' isTRUE(all.equal(normalizedLermanIndex(new("Partition", c(0, 0, 0, 1, 1)), 
+#'                                        new("Partition", c(0, 0, 1, 1, 1))), 1/6))
 #' 
 #' @seealso \code{\link{lermanIndex}}
 #' @export

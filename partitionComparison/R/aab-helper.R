@@ -26,7 +26,7 @@ setOverlap <- function(p, q, i, j) sum(p == i & q == j)
 #' 
 #' @template author
 #' @examples 
-#' projectionNumber(c(0, 0, 0, 1, 1), c(0, 0, 1, 1, 1)) == 4
+#' isTRUE(all.equal(projectionNumber(c(0, 0, 0, 1, 1), c(0, 0, 1, 1, 1)), 4))
 #' 
 #' @seealso \code{\link{dongensMetric}}
 #' 
@@ -56,9 +56,9 @@ projectionNumber <- function(p, q) {
 #' @template author
 #' @name entropy
 #' @examples 
-#' entropy(c(.5, .5)) == log(2)
-#' entropy(c(.5, .5), 2) == 1
-#' entropy(c(.5, .5), 4) == .5
+#' isTRUE(all.equal(entropy(c(.5, .5)), log(2)))
+#' isTRUE(all.equal(entropy(c(.5, .5), 2), 1))
+#' isTRUE(all.equal(entropy(c(.5, .5), 4), .5))
 #' 
 #' @export
 setGeneric("entropy", function(x, log_base) standardGeneric("entropy"))
@@ -74,7 +74,7 @@ setMethod("entropy", signature(x="numeric", log_base="numeric"),
 
 #' @examples 
 #' # Entropy of a partition
-#' entropy(new("Partition", c(0, 0, 1, 1, 1))) == entropy(c(2/5, 3/5))
+#' isTRUE(all.equal(entropy(new("Partition", c(0, 0, 1, 1, 1))), entropy(c(2/5, 3/5))))
 #' 
 #' @describeIn entropy Entropy of a partition represented by \code{x}
 setMethod("entropy", signature(x="Partition", log_base="numeric"), 

@@ -13,8 +13,11 @@ build: clean
 install: clean
 	R CMD INSTALL partitionComparison
 
-check: clean
-	R cmd check partitionComparison --as_cran
+check: build
+	R CMD check partitionComparison_*.tar.gz
+
+cran: build
+	R CMD check --as-cran partitionComparison_*.tar.gz
 
 doc: clean
 	R CMD Rd2pdf partitionComparison

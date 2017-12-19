@@ -13,8 +13,8 @@
 #' @template author
 #' @name dongensMetric
 #' @examples 
-#' dongensMetric(new("Partition", c(0, 0, 0, 1, 1)), 
-#'               new("Partition", c(0, 0, 1, 1, 1))) == 2
+#' isTRUE(all.equal(dongensMetric(new("Partition", c(0, 0, 0, 1, 1)), 
+#'                                new("Partition", c(0, 0, 1, 1, 1))), 2))
 #'               
 #' @seealso \code{\link{projectionNumber}}
 #' 
@@ -41,8 +41,8 @@ setMethod("dongensMetric", signature(p="Partition", q="Partition"),
 #' @template author
 #' @name larsenAone
 #' @examples 
-#' larsenAone(new("Partition", c(0, 0, 0, 1, 1)), 
-#'            new("Partition", c(0, 0, 1, 1, 1))) == 0.8
+#' isTRUE(all.equal(larsenAone(new("Partition", c(0, 0, 0, 1, 1)), 
+#'                             new("Partition", c(0, 0, 1, 1, 1))), 0.8))
 #' 
 #' @export
 setGeneric("larsenAone", function(p, q) standardGeneric("larsenAone"))
@@ -89,8 +89,8 @@ setMethod("larsenAone", signature(p="Partition", q="Partition"),
 #' @template author
 #' @name classificationErrorDistance
 #' @examples 
-#' classificationErrorDistance(new("Partition", c(0, 0, 0, 1, 1)), 
-#'                             new("Partition", c(0, 0, 1, 1, 1))) == 0.2
+#' isTRUE(all.equal(classificationErrorDistance(new("Partition", c(0, 0, 0, 1, 1)), 
+#'                                              new("Partition", c(0, 0, 1, 1, 1))), 0.2))
 #' 
 #' @import lpSolve
 #' @export

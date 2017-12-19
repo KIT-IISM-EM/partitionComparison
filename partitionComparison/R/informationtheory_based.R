@@ -13,8 +13,8 @@
 #' @template author
 #' @name mutualInformation
 #' @examples 
-#' mutualInformation(new("Partition", c(0, 0, 0, 1, 1)), 
-#'                   new("Partition", c(0, 0, 1, 1, 1))) == 4/5*log(5/3) + 1/5*log(5/9)
+#' isTRUE(all.equal(mutualInformation(new("Partition", c(0, 0, 0, 1, 1)), 
+#'                  new("Partition", c(0, 0, 1, 1, 1))), 4/5*log(5/3) + 1/5*log(5/9)))
 #' 
 #' @seealso \code{\link{normalizedMutualInformation}}
 #' @export
@@ -63,11 +63,14 @@ setMethod("mutualInformation", signature(p="Partition", q="Partition"),
 #' @param type One of "min" (default), "max" or "sum"
 #' @template author
 #' @name normalizedMutualInformation
-#' @examples 
-#' normalizedMutualInformation(new("Partition", c(0, 0, 0, 1, 1)), 
-#'                             new("Partition", c(0, 0, 1, 1, 1)), "min") == 
-#' normalizedMutualInformation(new("Partition", c(0, 0, 0, 1, 1)), 
-#'                             new("Partition", c(0, 0, 1, 1, 1)), "max")
+#' @examples
+#' isTRUE(all.equal(normalizedMutualInformation(
+#'                    new("Partition", c(0, 0, 0, 1, 1)),
+#'                    new("Partition", c(0, 0, 1, 1, 1)), "min"),
+#'                  normalizedMutualInformation(
+#'                    new("Partition", c(0, 0, 0, 1, 1)), 
+#'                    new("Partition", c(0, 0, 1, 1, 1)), "max")
+#'                  ))
 #' 
 #' @seealso \code{\link{mutualInformation}}, \code{\link{entropy}}
 #' @export
@@ -111,8 +114,9 @@ setMethod("normalizedMutualInformation",
 #' @template author
 #' @name variationOfInformation
 #' @examples 
-#' round(variationOfInformation(new("Partition", c(0, 0, 0, 1, 1)), 
-#'                              new("Partition", c(0, 0, 1, 1, 1))), 6) == 0.763817
+#' isTRUE(all.equal(variationOfInformation(new("Partition", c(0, 0, 0, 1, 1)),
+#'                                         new("Partition", c(0, 0, 1, 1, 1))),
+#'                                         0.763817))
 #' 
 #' @seealso \code{\link{mutualInformation}}, \code{\link{entropy}}
 #' @export
