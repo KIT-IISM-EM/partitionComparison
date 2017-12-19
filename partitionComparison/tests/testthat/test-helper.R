@@ -30,7 +30,7 @@ test_that("entropy computation is correct", {
   # Compute the relative frequencies
   large_partition_relfreq <- as.vector(table(large_partition) / n)
   
-  expect_true(entropy(large_partition_relfreq) <= log(k))
+  expect_true(entropy(large_partition_relfreq) - log(k) <= .Machine$double.eps^.5)
   expect_equal(entropy(rep(1/k, k)), log(k))
   expect_equal(entropy(c(rep(0, k-1), 1)), 0)
   
@@ -40,8 +40,8 @@ test_that("entropy computation is correct", {
   expect_equal(entropy(r), entropy(c(1/5, 4/5)))
   expect_equal(entropy(s), entropy(c(2/5, 2/5, 1/5)))
   
-  expect_true(entropy(large_partition) <= log(k))
-  expect_true(entropy(large_partition) >= 0)
+  expect_true(entropy(large_partition) - log(k) <= .Machine$double.eps^.5)
+  expect_true(-entropy(large_partition) <= .Machine$double.eps^.5)
 })
 
 

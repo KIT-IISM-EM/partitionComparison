@@ -66,7 +66,7 @@ setGeneric("entropy", function(x, log_base) standardGeneric("entropy"))
 #' @rdname entropy
 setMethod("entropy", signature(x="numeric", log_base="numeric"), 
           function(x, log_base) {
-            if (sum(x) != 1)
+            if (!isTRUE(all.equal(sum(x), 1)))
               stop("x is not a distribution that sums to 1")
             
             -sum(sapply(x[x > 0], function(p) p * log(p, base = log_base)))
