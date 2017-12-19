@@ -27,8 +27,8 @@ Compute the mutual information
 }}
 
 \examples{
-mutualInformation(new("Partition", c(0, 0, 0, 1, 1)), 
-                  new("Partition", c(0, 0, 1, 1, 1))) == 4/5*log(5/3) + 1/5*log(5/9)
+isTRUE(all.equal(mutualInformation(new("Partition", c(0, 0, 0, 1, 1)), 
+                 new("Partition", c(0, 0, 1, 1, 1))), 4/5*log(5/3) + 1/5*log(5/9)))
 
 }
 \references{

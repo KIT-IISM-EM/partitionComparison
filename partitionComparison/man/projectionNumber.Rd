@@ -17,7 +17,7 @@ compute the projection number which is the sum of maximum
 cluster overlaps for all clusters of \eqn{P} to any cluster of \eqn{Q}.
 }
 \examples{
-projectionNumber(c(0, 0, 0, 1, 1), c(0, 0, 1, 1, 1)) == 4
+isTRUE(all.equal(projectionNumber(c(0, 0, 0, 1, 1), c(0, 0, 1, 1, 1)), 4))
 
 }
 \seealso{

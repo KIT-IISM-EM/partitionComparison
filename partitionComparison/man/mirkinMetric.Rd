@@ -30,8 +30,8 @@ Compute the Mirkin metric
 }}
 
 \examples{
-mirkinMetric(new("Partition", c(0, 0, 0, 1, 1)), 
-             new("Partition", c(0, 0, 1, 1, 1))) == 8
+isTRUE(all.equal(mirkinMetric(new("Partition", c(0, 0, 0, 1, 1)), 
+                              new("Partition", c(0, 0, 1, 1, 1))), 8))
 
 }
 \references{

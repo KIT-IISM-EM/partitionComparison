@@ -32,8 +32,8 @@ Compute the Lerman index
 }}
 
 \examples{
-lermanIndex(new("Partition", c(0, 0, 0, 1, 1)), 
-            new("Partition", c(0, 0, 1, 1, 1))) == 2/sqrt(21)
+isTRUE(all.equal(lermanIndex(new("Partition", c(0, 0, 0, 1, 1)), 
+                             new("Partition", c(0, 0, 1, 1, 1))), 2/sqrt(21)))
 
 }
 \references{

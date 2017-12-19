@@ -34,8 +34,8 @@ weighted bipartite graph.
 }
 
 \examples{
-classificationErrorDistance(new("Partition", c(0, 0, 0, 1, 1)), 
-                            new("Partition", c(0, 0, 1, 1, 1))) == 0.2
+isTRUE(all.equal(classificationErrorDistance(new("Partition", c(0, 0, 0, 1, 1)), 
+                                             new("Partition", c(0, 0, 1, 1, 1))), 0.2))
 
 }
 \references{

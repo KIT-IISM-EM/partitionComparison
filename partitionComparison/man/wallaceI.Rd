@@ -30,7 +30,8 @@ Compute Wallace' index I
 }}
 
 \examples{
-wallaceI(new("Partition", c(0, 0, 0, 1, 1)), new("Partition", c(0, 0, 1, 1, 1))) == 0.5
+isTRUE(all.equal(wallaceI(new("Partition", c(0, 0, 0, 1, 1)), 
+                          new("Partition", c(0, 0, 1, 1, 1))), 0.5))
 
 }
 \references{

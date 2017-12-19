@@ -30,8 +30,8 @@ Compute the index of Russel and Rao
 }}
 
 \examples{
-russelRao(new("Partition", c(0, 0, 0, 1, 1)), 
-          new("Partition", c(0, 0, 1, 1, 1))) == 0.2
+isTRUE(all.equal(russelRao(new("Partition", c(0, 0, 0, 1, 1)), 
+                           new("Partition", c(0, 0, 1, 1, 1))), 0.2))
 
 }
 \references{

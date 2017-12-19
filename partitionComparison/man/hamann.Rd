@@ -30,7 +30,8 @@ Compute the Hamann coefficient
 }}
 
 \examples{
-hamann(new("Partition", c(0, 0, 0, 1, 1)), new("Partition", c(0, 0, 1, 1, 1))) == 0.2
+isTRUE(all.equal(hamann(new("Partition", c(0, 0, 0, 1, 1)), 
+                        new("Partition", c(0, 0, 1, 1, 1))), 0.2))
 
 }
 \references{

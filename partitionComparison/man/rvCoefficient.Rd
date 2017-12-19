@@ -30,8 +30,8 @@ Compute the RV coefficient
 }}
 
 \examples{
-rvCoefficient(new("Partition", c(0, 0, 0, 1, 1)), 
-              new("Partition", c(0, 0, 1, 1, 1))) == 9 / 13
+isTRUE(all.equal(rvCoefficient(new("Partition", c(0, 0, 0, 1, 1)), 
+                               new("Partition", c(0, 0, 1, 1, 1))), 9/13))
 
 }
 \references{

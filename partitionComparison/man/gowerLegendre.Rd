@@ -32,8 +32,8 @@ Compute the index of Gower and Legendre
 }}
 
 \examples{
-gowerLegendre(new("Partition", c(0, 0, 0, 1, 1)), 
-              new("Partition", c(0, 0, 1, 1, 1))) == 0.75
+isTRUE(all.equal(gowerLegendre(new("Partition", c(0, 0, 0, 1, 1)), 
+                               new("Partition", c(0, 0, 1, 1, 1))), 0.75))
 
 }
 \references{

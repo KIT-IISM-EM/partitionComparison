@@ -30,8 +30,8 @@ Compute the index of Fager and McGowan
 }}
 
 \examples{
-fagerMcGowan(new("Partition", c(0, 0, 0, 1, 1)), 
-             new("Partition", c(0, 0, 1, 1, 1))) == 0.25
+isTRUE(all.equal(fagerMcGowan(new("Partition", c(0, 0, 0, 1, 1)), 
+                              new("Partition", c(0, 0, 1, 1, 1))), 0.25))
 
 }
 \references{

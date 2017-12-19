@@ -30,8 +30,8 @@ Compute the Rand index
 }}
 
 \examples{
-randIndex(new("Partition", c(0, 0, 0, 1, 1)), 
-          new("Partition", c(0, 0, 1, 1, 1))) == 0.6
+isTRUE(all.equal(randIndex(new("Partition", c(0, 0, 0, 1, 1)),
+                           new("Partition", c(0, 0, 1, 1, 1))), 0.6))
 
 }
 \references{

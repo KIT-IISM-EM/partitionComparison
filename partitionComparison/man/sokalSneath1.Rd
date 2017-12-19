@@ -33,8 +33,8 @@ Compute the index 1 of Sokal and Sneath
 }}
 
 \examples{
-sokalSneath1(new("Partition", c(0, 0, 0, 1, 1)), 
-             new("Partition", c(0, 0, 1, 1, 1))) == 7/12
+isTRUE(all.equal(sokalSneath1(new("Partition", c(0, 0, 0, 1, 1)), 
+                             new("Partition", c(0, 0, 1, 1, 1))), 7/12))
 
 }
 \references{

@@ -30,8 +30,8 @@ Compute the index of Goodman and Kruskal
 }}
 
 \examples{
-goodmanKruskal(new("Partition", c(0, 0, 0, 1, 1)), 
-               new("Partition", c(0, 0, 1, 1, 1))) == 1/3
+isTRUE(all.equal(goodmanKruskal(new("Partition", c(0, 0, 0, 1, 1)), 
+                                new("Partition", c(0, 0, 1, 1, 1))), 1/3))
 
 }
 \references{

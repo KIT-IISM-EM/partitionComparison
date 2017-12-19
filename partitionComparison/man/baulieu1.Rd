@@ -30,8 +30,8 @@ Compute the index 1 of Baulieu
 }}
 
 \examples{
-baulieu1(new("Partition", c(0, 0, 0, 1, 1)), 
-         new("Partition", c(0, 0, 1, 1, 1))) == 0.76
+isTRUE(all.equal(baulieu1(new("Partition", c(0, 0, 0, 1, 1)), 
+                          new("Partition", c(0, 0, 1, 1, 1))), 0.76))
 
 }
 \references{

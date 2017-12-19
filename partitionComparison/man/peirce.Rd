@@ -30,7 +30,8 @@ Compute the Peirce index
 }}
 
 \examples{
-peirce(new("Partition", c(0, 0, 0, 1, 1)), new("Partition", c(0, 0, 1, 1, 1))) == 1/6
+isTRUE(all.equal(peirce(new("Partition", c(0, 0, 0, 1, 1)), 
+                        new("Partition", c(0, 0, 1, 1, 1))), 1/6))
 
 }
 \references{

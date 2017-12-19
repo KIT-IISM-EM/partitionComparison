@@ -30,8 +30,8 @@ Compute the Minkowski measure
 }}
 
 \examples{
-minkowskiMeasure(new("Partition", c(0, 0, 0, 1, 1)), 
-                 new("Partition", c(0, 0, 1, 1, 1))) == 1
+isTRUE(all.equal(minkowskiMeasure(new("Partition", c(0, 0, 0, 1, 1)), 
+                                  new("Partition", c(0, 0, 1, 1, 1))), 1))
 
 }
 \references{

@@ -30,8 +30,8 @@ Compute the McConnaughey index
 }}
 
 \examples{
-mcconnaughey(new("Partition", c(0, 0, 0, 1, 1)), 
-             new("Partition", c(0, 0, 1, 1, 1))) == 0
+isTRUE(all.equal(mcconnaughey(new("Partition", c(0, 0, 0, 1, 1)), 
+                              new("Partition", c(0, 0, 1, 1, 1))), 0))
 
 }
 \references{

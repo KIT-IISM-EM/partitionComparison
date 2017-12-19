@@ -30,8 +30,8 @@ Compute the index 2 of Sokal and Sneath
 }}
 
 \examples{
-sokalSneath2(new("Partition", c(0, 0, 0, 1, 1)), 
-             new("Partition", c(0, 0, 1, 1, 1))) == 0.2
+isTRUE(all.equal(sokalSneath2(new("Partition", c(0, 0, 0, 1, 1)), 
+                              new("Partition", c(0, 0, 1, 1, 1))), 0.2))
 
 }
 \references{

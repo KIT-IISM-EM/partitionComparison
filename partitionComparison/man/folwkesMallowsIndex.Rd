@@ -31,8 +31,8 @@ which is a combination of the two Wallace indices.
 }}
 
 \examples{
-folwkesMallowsIndex(new("Partition", c(0, 0, 0, 1, 1)), 
-                    new("Partition", c(0, 0, 1, 1, 1))) == 0.5
+isTRUE(all.equal(folwkesMallowsIndex(new("Partition", c(0, 0, 0, 1, 1)), 
+                                     new("Partition", c(0, 0, 1, 1, 1))), 0.5))
 
 }
 \references{

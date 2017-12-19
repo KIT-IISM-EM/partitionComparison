@@ -30,8 +30,8 @@ Compute the Jaccard coefficient
 }}
 
 \examples{
-jaccardCoefficient(new("Partition", c(0, 0, 0, 1, 1)), 
-                   new("Partition", c(0, 0, 1, 1, 1))) == 1/3
+isTRUE(all.equal(jaccardCoefficient(new("Partition", c(0, 0, 0, 1, 1)), 
+                                    new("Partition", c(0, 0, 1, 1, 1))), 1/3))
 
 }
 \references{

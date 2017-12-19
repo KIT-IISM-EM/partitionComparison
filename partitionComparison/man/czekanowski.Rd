@@ -30,8 +30,8 @@ Compute the Czekanowski index
 }}
 
 \examples{
-czekanowski(new("Partition", c(0, 0, 0, 1, 1)), 
-            new("Partition", c(0, 0, 1, 1, 1))) == 0.5
+isTRUE(all.equal(czekanowski(new("Partition", c(0, 0, 0, 1, 1)), 
+                             new("Partition", c(0, 0, 1, 1, 1))), 0.5))
 
 }
 \references{

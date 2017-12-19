@@ -30,8 +30,8 @@ Compute the Gamma statistics
 }}
 
 \examples{
-gammaStatistics(new("Partition", c(0, 0, 0, 1, 1)), 
-                new("Partition", c(0, 0, 1, 1, 1))) == 1/6
+isTRUE(all.equal(gammaStatistics(new("Partition", c(0, 0, 0, 1, 1)), 
+                                 new("Partition", c(0, 0, 1, 1, 1))), 1/6))
 
 }
 \references{

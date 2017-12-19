@@ -22,10 +22,10 @@ all of the pair comparison measures are based on.
 \examples{
 pc <- computePairCoefficients(new("Partition", c(0, 0, 0, 1, 1)), 
                               new("Partition", c(0, 0, 1, 1, 1)))
-N11(pc) == 2
-N10(pc) == 2
-N01(pc) == 2
-N00(pc) == 4
+isTRUE(all.equal(N11(pc), 2))
+isTRUE(all.equal(N10(pc), 2))
+isTRUE(all.equal(N01(pc), 2))
+isTRUE(all.equal(N00(pc), 4))
 
 }
 \author{

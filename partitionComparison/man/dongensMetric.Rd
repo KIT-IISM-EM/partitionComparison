@@ -27,8 +27,8 @@ Compute Dongen's metric
 }}
 
 \examples{
-dongensMetric(new("Partition", c(0, 0, 0, 1, 1)), 
-              new("Partition", c(0, 0, 1, 1, 1))) == 2
+isTRUE(all.equal(dongensMetric(new("Partition", c(0, 0, 0, 1, 1)), 
+                               new("Partition", c(0, 0, 1, 1, 1))), 2))
               
 }
 \references{

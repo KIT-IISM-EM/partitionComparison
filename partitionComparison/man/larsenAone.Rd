@@ -28,8 +28,8 @@ Compute the measure of Larsen and Aone
 }}
 
 \examples{
-larsenAone(new("Partition", c(0, 0, 0, 1, 1)), 
-           new("Partition", c(0, 0, 1, 1, 1))) == 0.8
+isTRUE(all.equal(larsenAone(new("Partition", c(0, 0, 0, 1, 1)), 
+                            new("Partition", c(0, 0, 1, 1, 1))), 0.8))
 
 }
 \references{

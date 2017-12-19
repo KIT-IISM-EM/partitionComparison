@@ -36,12 +36,12 @@ This method is used internally for measures based on information theory
 }
 
 \examples{
-entropy(c(.5, .5)) == log(2)
-entropy(c(.5, .5), 2) == 1
-entropy(c(.5, .5), 4) == .5
+isTRUE(all.equal(entropy(c(.5, .5)), log(2)))
+isTRUE(all.equal(entropy(c(.5, .5), 2), 1))
+isTRUE(all.equal(entropy(c(.5, .5), 4), .5))
 
 # Entropy of a partition
-entropy(new("Partition", c(0, 0, 1, 1, 1))) == entropy(c(2/5, 3/5))
+isTRUE(all.equal(entropy(new("Partition", c(0, 0, 1, 1, 1))), entropy(c(2/5, 3/5))))
 
 }
 \author{

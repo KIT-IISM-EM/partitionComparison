@@ -30,8 +30,8 @@ Compute the index 2 of Baulieu
 }}
 
 \examples{
-baulieu2(new("Partition", c(0, 0, 0, 1, 1)), 
-         new("Partition", c(0, 0, 1, 1, 1))) == 0.04
+isTRUE(all.equal(baulieu2(new("Partition", c(0, 0, 0, 1, 1)), 
+                          new("Partition", c(0, 0, 1, 1, 1))), 0.04))
 
 }
 \references{

@@ -37,10 +37,13 @@ or the sum
 }}
 
 \examples{
-normalizedMutualInformation(new("Partition", c(0, 0, 0, 1, 1)), 
-                            new("Partition", c(0, 0, 1, 1, 1)), "min") == 
-normalizedMutualInformation(new("Partition", c(0, 0, 0, 1, 1)), 
-                            new("Partition", c(0, 0, 1, 1, 1)), "max")
+isTRUE(all.equal(normalizedMutualInformation(
+                   new("Partition", c(0, 0, 0, 1, 1)),
+                   new("Partition", c(0, 0, 1, 1, 1)), "min"),
+                 normalizedMutualInformation(
+                   new("Partition", c(0, 0, 0, 1, 1)), 
+                   new("Partition", c(0, 0, 1, 1, 1)), "max")
+                 ))
 
 }
 \references{

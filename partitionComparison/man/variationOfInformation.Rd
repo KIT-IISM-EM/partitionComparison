@@ -26,8 +26,9 @@ where \eqn{MI} is the mutual information, \eqn{H} the partition entropy
 }}
 
 \examples{
-round(variationOfInformation(new("Partition", c(0, 0, 0, 1, 1)), 
-                             new("Partition", c(0, 0, 1, 1, 1))), 6) == 0.763817
+isTRUE(all.equal(variationOfInformation(new("Partition", c(0, 0, 0, 1, 1)),
+                                        new("Partition", c(0, 0, 1, 1, 1))),
+                                        0.763817))
 
 }
 \references{

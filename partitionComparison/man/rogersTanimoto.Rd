@@ -30,8 +30,8 @@ Compute the index of Rogers and Tanimoto
 }}
 
 \examples{
-rogersTanimoto(new("Partition", c(0, 0, 0, 1, 1)), 
-               new("Partition", c(0, 0, 1, 1, 1))) == 3/7
+isTRUE(all.equal(rogersTanimoto(new("Partition", c(0, 0, 0, 1, 1)), 
+                                new("Partition", c(0, 0, 1, 1, 1))), 3/7))
 
 }
 \references{

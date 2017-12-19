@@ -5,7 +5,6 @@ all: install
 clean:
 	rm -rf ./partitionComparison.Rcheck
 	rm -f partitionComparison_*.tar.gz
-	rm -f partitionComparison.pdf
 
 build: clean
 	R CMD build partitionComparison
@@ -19,5 +18,7 @@ check: build
 cran: build
 	R CMD check --as-cran partitionComparison_*.tar.gz
 
-doc: clean
+doc: 
+	rm -f partitionComparison.pdf
+	R -e 'library("devtools"); devtools::document("partitionComparison")'
 	R CMD Rd2pdf partitionComparison
