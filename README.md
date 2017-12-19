@@ -7,10 +7,13 @@ For more details, see the package details on CRAN (https://cran.r-project.org/pa
 Changes
 -------
 
+0.2.3
+  - Replaced ``==`` comparisons by tolerance permissive ``isTRUE(all.equal(x, y))``
+
 0.2.2
   - First version published on CRAN
   - Finalized description, documentation, references
-  - Added a 'compareAll' method to run comparison with all measures
+  - Added a ``compareAll`` method to run comparison with all measures
 
 0.2.1
   - Dropped igraph dependency in favor of lpSolve
