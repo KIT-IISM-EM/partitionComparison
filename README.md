@@ -7,6 +7,9 @@ For more details, see the package details on CRAN (https://cran.r-project.org/pa
 Changes
 -------
 
+0.2.5
+  - Changed maintainer information and updated URL/BugReports links
+
 0.2.4
   - Fixed some encoding issues
 

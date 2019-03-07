@@ -64,8 +64,16 @@ randIndex(data.km2$cluster, data.km3$cluster)
 
 \insertRef{Meila2007}{partitionComparison}
 }
+\seealso{
+Useful links:
+\itemize{
+  \item \url{https://github.com/KIT-IISM-EM/partitionComparison}
+  \item Report bugs at \url{https://github.com/KIT-IISM-EM/partitionComparison/issues}
+}
+
+}
 \author{
-\strong{Maintainer}: Fabian Ball \email{fabian.ball@kit.edu} [copyright holder, contributor]
+\strong{Maintainer}: Fabian Ball \email{mail@fabian-ball.de} [copyright holder, contributor]
 
 Other contributors:
 \itemize{
