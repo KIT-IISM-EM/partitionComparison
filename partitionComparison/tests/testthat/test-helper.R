@@ -47,7 +47,7 @@ test_that("entropy computation is correct", {
 
 test_that("registration of vector signatures for measures works correct", {
   # Not registered => error
-  pattern <- "unable to find an inherited method for function 'randIndex' for signature '\"numeric\", \"numeric\"'"
+  pattern <- "unable to find an inherited method for function 'randIndex' for signature '.*\"numeric\", .*\"numeric\"'"
   expect_error(randIndex(c(0, 0, 0, 1, 1), c(0, 0, 1, 1, 1)), regexp = pattern)
   
   # Only the "Partition" signature exists

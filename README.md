@@ -7,6 +7,9 @@ For more details, see the package details on CRAN (https://cran.r-project.org/pa
 Changes
 -------
 
+0.2.6
+  - Fixed a test that failed since a change in R-devel (2023-08-16)
+
 0.2.5
   - Changed maintainer information and updated URL/BugReports links
 
