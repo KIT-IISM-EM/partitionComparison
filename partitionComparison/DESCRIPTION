@@ -27,7 +27,7 @@ Authors@R: c(
     person("Fabian", "Ball",, "mail@fabian-ball.de", c("aut", "cre", "cph", "ctb")),
     person("Andreas", "Geyer-Schulz",, "andreas.geyer-schulz@kit.edu", c("cph"))
     )
-RoxygenNote: 6.0.1
+RoxygenNote: 7.2.3
 RdMacros: Rdpack
 Imports: methods, Rdpack, lpSolve
 Suggests: testthat
